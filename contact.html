@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Contact us to share your Basotho cultural experiences and provide feedback on our heritage website">
+    <meta name="keywords" content="contact, feedback, Basotho culture, heritage project, community involvement">
+    <title>Contact & Feedback - Basotho Heritage</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">Basotho Heritage</div>
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="clothing.html">Traditional Clothing</a></li>
+                    <li><a href="music.html">Music & Dance</a></li>
+                    <li><a href="crafts.html">Crafts & Art</a></li>
+                    <li><a href="festivals.html">Festivals</a></li>
+                    <li><a href="contact.html" class="active">Contact</a></li>
+                </ul>
+                <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation menu">
+                    <span>☰</span>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <h1>Contact & Feedback</h1>
+                <p>We welcome your thoughts, stories, and contributions to preserving Basotho cultural heritage. Share your experiences, ask questions, or provide feedback to help us improve this cultural archive.</p>
+            </div>
+        </section>
+
+        <!-- Contact Information -->
+        <section class="contact-info">
+            <div class="container">
+                <h2 class="section-title">Get In Touch</h2>
+                <div class="grid grid-3">
+                    <div class="card text-center">
+                        <div style="font-size: 3rem; color: var(--primary-color); margin-bottom: 1rem;">📧</div>
+                        <h3>Email Us</h3>
+                        <p>heritage@basothoculture.org</p>
+                        <p>info@basothoheritage.edu</p>
+                        <small>We respond within 24 hours</small>
+                    </div>
+                    <div class="card text-center">
+                        <div style="font-size: 3rem; color: var(--primary-color); margin-bottom: 1rem;">📱</div>
+                        <h3>Call Us</h3>
+                        <p>+266 2831 2345</p>
+                        <p>+266 5678 9012</p>
+                        <small>Monday - Friday, 8:00 AM - 5:00 PM</small>
+                    </div>
+                    <div class="card text-center">
+                        <div style="font-size: 3rem; color: var(--primary-color); margin-bottom: 1rem;">🏢</div>
+                        <h3>Visit Us</h3>
+                        <p>Cultural Heritage Center</p>
+                        <p>Maseru, Lesotho</p>
+                        <small>By appointment only</small>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Form -->
+        <section class="contact-form-section">
+            <div class="container">
+                <div class="form-container">
+                    <h2 class="section-title">Send Us a Message</h2>
+                    <p class="section-subtitle">We'd love to hear from you! Whether you have questions, feedback, or want to share your own cultural stories.</p>
+                    
+                    <form id="contactForm" class="contact-form" novalidate>
+                        <div class="form-group">
+                            <label for="name">Full Name <span style="color: red;">*</span></label>
+                            <input type="text" id="name" name="name" class="form-control" required 
+                                   placeholder="Enter your full name"
+                                   aria-describedby="nameError">
+                            <div class="error-message" id="nameError" role="alert"></div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Email Address <span style="color: red;">*</span></label>
+                            <input type="email" id="email" name="email" class="form-control" required 
+                                   placeholder="Enter your email address"
+                                   aria-describedby="emailError">
+                            <div class="error-message" id="emailError" role="alert"></div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" name="phone" class="form-control" 
+                                   placeholder="Enter your phone number (optional)"
+                                   aria-describedby="phoneError">
+                            <div class="error-message" id="phoneError" role="alert"></div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="topic">Topic of Interest <span style="color: red;">*</span></label>
+                            <select id="topic" name="topic" class="form-control" required 
+                                    aria-describedby="topicError">
+                                <option value="">Select a topic</option>
+                                <option value="general-inquiry">General Inquiry</option>
+                                <option value="traditional-clothing">Traditional Clothing</option>
+                                <option value="music-dance">Music & Dance</option>
+                                <option value="crafts-art">Crafts & Art</option>
+                                <option value="festivals">Festivals & Celebrations</option>
+                                <option value="cultural-stories">Share Cultural Stories</option>
+                                <option value="educational-resources">Educational Resources</option>
+                                <option value="website-feedback">Website Feedback</option>
+                                <option value="collaboration">Collaboration Opportunities</option>
+                                <option value="other">Other</option>
+                            </select>
+                            <div class="error-message" id="topicError" role="alert"></div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="subject">Subject <span style="color: red;">*</span></label>
+                            <input type="text" id="subject" name="subject" class="form-control" required 
+                                   placeholder="Brief subject of your message"
+                                   aria-describedby="subjectError">
+                            <div class="error-message" id="subjectError" role="alert"></div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message">Message <span style="color: red;">*</span></label>
+                            <textarea id="message" name="message" class="form-control" required 
+                                      placeholder="Please share your thoughts, questions, or feedback..."
+                                      rows="6"
+                                      aria-describedby="messageError"></textarea>
+                            <div class="error-message" id="messageError" role="alert"></div>
+                            <small class="character-count">0/2000 characters</small>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="newsletter" name="newsletter" value="yes">
+                                <span class="checkmark"></span>
+                                Subscribe to our newsletter for updates on Basotho cultural events and new content
+                            </label>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="privacy" name="privacy" required>
+                                <span class="checkmark"></span>
+                                I agree to the <a href="#privacy-policy" target="_blank">Privacy Policy</a> and consent to my information being used to respond to my inquiry <span style="color: red;">*</span>
+                            </label>
+                            <div class="error-message" id="privacyError" role="alert"></div>
+                        </div>
+
+                        <div class="form-actions">
+                            <button type="submit" class="btn btn-primary" id="submitBtn">
+                                <span class="btn-text">Send Message</span>
+                                <span class="btn-loading" style="display: none;">Sending...</span>
+                            </button>
+                            <button type="reset" class="btn btn-secondary" id="resetBtn">Clear Form</button>
+                        </div>
+
+                        <div class="form-success" id="successMessage" style="display: none;" role="alert">
+                            <h4>✅ Message Sent Successfully!</h4>
+                            <p>Thank you for contacting us. We'll get back to you within 24 hours.</p>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section class="faq-section">
+            <div class="container">
+                <h2 class="section-title">Frequently Asked Questions</h2>
+                <div class="grid grid-2">
+                    <div class="faq-item">
+                        <h4>How can I contribute to the cultural archive?</h4>
+                        <p>We welcome stories, photographs, traditional knowledge, and cultural artifacts. Contact us through the form above with "Share Cultural Stories" as your topic of interest.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h4>Can I use your content for educational purposes?</h4>
+                        <p>Yes! Our content is available for educational use. Please contact us for proper attribution guidelines and any specific permissions you may need.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h4>Do you organize cultural tours or workshops?</h4>
+                        <p>We partner with local cultural organizations to offer authentic experiences. Select "Collaboration Opportunities" in the contact form to learn more.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h4>How can schools use this website?</h4>
+                        <p>Teachers can use our content for cultural education. We also offer educational resources and can arrange virtual presentations for classrooms.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Community Guidelines -->
+        <section class="community-guidelines">
+            <div class="container">
+                <h2 class="section-title">Community Guidelines</h2>
+                <div class="card">
+                    <h3>Respectful Cultural Sharing</h3>
+                    <p>When sharing cultural information or stories, please ensure accuracy and respect for traditional knowledge. We encourage:</p>
+                    <ul style="margin-left: 2rem; margin-top: 1rem;">
+                        <li>Authentic, firsthand experiences</li>
+                        <li>Proper attribution of sources</li>
+                        <li>Respectful representation of traditions</li>
+                        <li>Cultural sensitivity in descriptions</li>
+                        <li>Permission from community elders when appropriate</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Basotho Heritage</h3>
+                    <p>Preserving and celebrating the rich cultural heritage of the Basotho people for future generations.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="clothing.html">Traditional Clothing</a></li>
+                        <li><a href="music.html">Music & Dance</a></li>
+                        <li><a href="crafts.html">Crafts & Art</a></li>
+                        <li><a href="festivals.html">Festivals</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Resources</h3>
+                    <ul>
+                        <li><a href="https://www.gov.ls/" target="_blank" rel="noopener">Government of Lesotho</a></li>
+                        <li><a href="https://www.ltdc.org.ls/" target="_blank" rel="noopener">Lesotho Tourism</a></li>
+                        <li><a href="#privacy-policy">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Connect</h3>
+                    <p>Follow us for updates on Basotho cultural events and new content additions.</p>
+                    <div class="social-links" style="margin-top: 1rem;">
+                        <a href="#" class="btn btn-secondary" style="margin-right: 0.5rem;">Facebook</a>
+                        <a href="#" class="btn btn-secondary">Twitter</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+    <p>&copy; 2025 Basotho Cultural Heritage Project by <a href="https://profilioo.com/">Profilioo </a>. Educational purposes. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    
+
+    <style>
+        .error-message {
+            color: #dc3545;
+            font-size: 0.875rem;
+            margin-top: 0.25rem;
+            display: none;
+        }
+
+        .error-message.show {
+            display: block;
+        }
+
+        .form-control.error {
+            border-color: #dc3545;
+            box-shadow: 0 0 0 3px rgba(220, 53, 69, 0.1);
+        }
+
+        .form-control.success {
+            border-color: #28a745;
+            box-shadow: 0 0 0 3px rgba(40, 167, 69, 0.1);
+        }
+
+        .character-count {
+            color: var(--text-light);
+            font-size: 0.8rem;
+            margin-top: 0.25rem;
+            display: block;
+        }
+
+        .checkbox-label {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            cursor: pointer;
+            line-height: 1.5;
+        }
+
+        .checkbox-label input[type="checkbox"] {
+            margin: 0;
+            width: auto;
+        }
+
+        .form-actions {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .form-success {
+            background: #d4edda;
+            color: #155724;
+            padding: 1.5rem;
+            border-radius: 8px;
+            border: 1px solid #c3e6cb;
+            margin-top: 1rem;
+            text-align: center;
+        }
+
+        .faq-item {
+            background: var(--background-light);
+            padding: 1.5rem;
+            border-radius: 8px;
+            border-left: 4px solid var(--primary-color);
+        }
+
+        .faq-item h4 {
+            color: var(--primary-color);
+            margin-bottom: 0.75rem;
+        }
+
+        @media (max-width: 768px) {
+            .form-actions {
+                flex-direction: column;
+            }
+            
+            .form-actions button {
+                width: 100%;
+            }
+        }
+    </style>
+
+    <script>
+        // Mobile Navigation Toggle
+        const menuToggle = document.getElementById('menuToggle');
+        const navMenu = document.getElementById('navMenu');
+
+        menuToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            const isExpanded = navMenu.classList.contains('active');
+            menuToggle.setAttribute('aria-expanded', isExpanded);
+        });
+
+        const navLinks = document.querySelectorAll('.nav-menu a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+                menuToggle.setAttribute('aria-expanded', 'false');
+            });
+        });
+
+        document.addEventListener('click', (e) => {
+            if (!menuToggle.contains(e.target) && !navMenu.contains(e.target)) {
+                navMenu.classList.remove('active');
+                menuToggle.setAttribute('aria-expanded', 'false');
+            }
+        });
+
+        // Form Functionality
+        const contactForm = document.getElementById('contactForm');
+        const submitBtn = document.getElementById('submitBtn');
+        const resetBtn = document.getElementById('resetBtn');
+        const successMessage = document.getElementById('successMessage');
+        const messageTextarea = document.getElementById('message');
+        const characterCount = document.querySelector('.character-count');
+
+        // Character counter for message
+        messageTextarea.addEventListener('input', () => {
+            const length = messageTextarea.value.length;
+            const maxLength = 2000;
+            characterCount.textContent = `${length}/${maxLength} characters`;
+            
+            if (length > maxLength) {
+                characterCount.style.color = '#dc3545';
+            } else if (length > maxLength * 0.9) {
+                characterCount.style.color = '#ffc107';
+            } else {
+                characterCount.style.color = 'var(--text-light)';
+            }
+        });
+
+        // Form validation functions
+        const validators = {
+            name: (value) => {
+                if (!value.trim()) return 'Name is required';
+                if (value.trim().length < 2) return 'Name must be at least 2 characters';
+                if (!/^[a-zA-Z\s]+$/.test(value.trim())) return 'Name should only contain letters and spaces';
+                return null;
+            },
+
+            email: (value) => {
+                if (!value.trim()) return 'Email is required';
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!emailRegex.test(value.trim())) return 'Please enter a valid email address';
+                return null;
+            },
+
+            phone: (value) => {
+                if (value.trim() && !/^[\d\s\+\-\(\)]+$/.test(value.trim())) {
+                    return 'Please enter a valid phone number';
+                }
+                return null;
+            },
+
+            topic: (value) => {
+                if (!value) return 'Please select a topic of interest';
+                return null;
+            },
+
+            subject: (value) => {
+                if (!value.trim()) return 'Subject is required';
+                if (value.trim().length < 5) return 'Subject must be at least 5 characters';
+                return null;
+            },
+
+            message: (value) => {
+                if (!value.trim()) return 'Message is required';
+                if (value.trim().length < 10) return 'Message must be at least 10 characters';
+                if (value.length > 2000) return 'Message must be less than 2000 characters';
+                return null;
+            },
+
+            privacy: (checked) => {
+                if (!checked) return 'You must agree to the privacy policy';
+                return null;
+            }
+        };
+
+        // Validation helper functions
+        function showError(fieldName, message) {
+            const field = document.getElementById(fieldName);
+            const errorElement = document.getElementById(fieldName + 'Error');
+            
+            field.classList.add('error');
+            field.classList.remove('success');
+            errorElement.textContent = message;
+            errorElement.classList.add('show');
+        }
+
+        function showSuccess(fieldName) {
+            const field = document.getElementById(fieldName);
+            const errorElement = document.getElementById(fieldName + 'Error');
+            
+            field.classList.remove('error');
+            field.classList.add('success');
+            errorElement.classList.remove('show');
+        }
+
+        function validateField(fieldName) {
+            const field = document.getElementById(fieldName);
+            let value;
+            
+            if (field.type === 'checkbox') {
+                value = field.checked;
+            } else {
+                value = field.value;
+            }
+            
+            const error = validators[fieldName] ? validators[fieldName](value) : null;
+            
+            if (error) {
+                showError(fieldName, error);
+                return false;
+            } else {
+                showSuccess(fieldName);
+                return true;
+            }
+        }
+
+        // Real-time validation
+        ['name', 'email', 'phone', 'topic', 'subject', 'message', 'privacy'].forEach(fieldName => {
+            const field = document.getElementById(fieldName);
+            const eventType = field.type === 'checkbox' ? 'change' : 'blur';
+            
+            field.addEventListener(eventType, () => validateField(fieldName));
+            
+            // Also validate on input for better UX
+            if (field.type !== 'checkbox') {
+                field.addEventListener('input', () => {
+                    if (field.classList.contains('error')) {
+                        validateField(fieldName);
+                    }
+                });
+            }
+        });
+
+        // Form submission
+        contactForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            // Validate all fields
+            const fields = ['name', 'email', 'phone', 'topic', 'subject', 'message', 'privacy'];
+            let isValid = true;
+            
+            fields.forEach(fieldName => {
+                if (!validateField(fieldName)) {
+                    isValid = false;
+                }
+            });
+            
+            if (!isValid) {
+                // Focus on first error field
+                const firstError = document.querySelector('.form-control.error, input.error');
+                if (firstError) {
+                    firstError.focus();
+                }
+                return;
+            }
+            
+            // Show loading state
+            const btnText = submitBtn.querySelector('.btn-text');
+            const btnLoading = submitBtn.querySelector('.btn-loading');
+            
+            submitBtn.disabled = true;
+            btnText.style.display = 'none';
+            btnLoading.style.display = 'inline';
+            
+            // Simulate form submission (in real implementation, this would send to server)
+            try {
+                await new Promise(resolve => setTimeout(resolve, 2000));
+                
+                // Show success message
+                contactForm.style.display = 'none';
+                successMessage.style.display = 'block';
+                
+                // Scroll to success message
+                successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                
+            } catch (error) {
+                console.error('Form submission error:', error);
+                alert('There was an error sending your message. Please try again.');
+            } finally {
+                // Reset button state
+                submitBtn.disabled = false;
+                btnText.style.display = 'inline';
+                btnLoading.style.display = 'none';
+            }
+        });
+
+        // Form reset
+        resetBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            
+            if (confirm('Are you sure you want to clear all form data?')) {
+                contactForm.reset();
+                
+                // Clear all validation states
+                document.querySelectorAll('.form-control').forEach(field => {
+                    field.classList.remove('error', 'success');
+                });
+                
+                document.querySelectorAll('.error-message').forEach(error => {
+                    error.classList.remove('show');
+                });
+                
+                // Reset character count
+                characterCount.textContent = '0/2000 characters';
+                characterCount.style.color = 'var(--text-light)';
+                
+                // Hide success message if shown
+                successMessage.style.display = 'none';
+                contactForm.style.display = 'block';
+            }
+        });
+
+        // Animation observer
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-fade-in-up');
+                }
+            });
+        }, observerOptions);
+
+        const animatedElements = document.querySelectorAll('.card, .form-container, .faq-item');
+        animatedElements.forEach(el => observer.observe(el));
+
+        // Accessibility improvements
+        contactForm.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' && e.target.tagName !== 'TEXTAREA' && e.target.tagName !== 'BUTTON') {
+                e.preventDefault();
+                const formElements = Array.from(contactForm.elements);
+                const currentIndex = formElements.indexOf(e.target);
+                const nextElement = formElements[currentIndex + 1];
+                
+                if (nextElement && nextElement.type !== 'submit') {
+                    nextElement.focus();
+                }
+            }
+        });
+    </script>
+</body>
+</html>

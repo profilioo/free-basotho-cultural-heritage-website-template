@@ -1,0 +1,869 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Discover traditional Basotho crafts including woven baskets, pottery, beadwork, and textile arts">
+    <meta name="keywords" content="Basotho crafts, traditional pottery, woven baskets, beadwork, Lesotho art, African crafts">
+    <title>Basotho Crafts & Art - Cultural Heritage</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Advanced CSS specific to crafts page */
+        .craft-showcase {
+            position: relative;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 4rem 0;
+            margin: 2rem 0;
+        }
+
+        .craft-showcase::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--gradient-primary);
+        }
+
+        .craft-category {
+            margin: 4rem 0;
+            padding: 3rem 0;
+            border-radius: 15px;
+            background: linear-gradient(45deg, rgba(44, 82, 52, 0.05), rgba(139, 69, 19, 0.05));
+            border: 2px solid var(--border-light);
+            transition: all 0.3s ease;
+        }
+
+        .craft-category:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-medium);
+            border-color: var(--primary-color);
+        }
+
+        .craft-hero-image {
+            position: relative;
+            height: 300px;
+            background: var(--gradient-primary);
+            border-radius: 20px;
+            overflow: hidden;
+            margin-bottom: 2rem;
+        }
+
+        .craft-hero-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.8;
+        }
+
+        .craft-hero-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0,0,0,0.7));
+            color: white;
+            padding: 2rem;
+        }
+
+        .technique-steps {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 2rem;
+            border-left: 5px solid var(--accent-color);
+            margin: 2rem 0;
+            box-shadow: var(--shadow-soft);
+        }
+
+        .step-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 35px;
+            height: 35px;
+            background: var(--primary-color);
+            color: white;
+            border-radius: 50%;
+            font-weight: bold;
+            margin-right: 1rem;
+        }
+
+        .material-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+
+        .material-item {
+            background: var(--background-light);
+            padding: 1rem;
+            border-radius: 8px;
+            border: 2px dashed var(--border-light);
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .material-item:hover {
+            border-color: var(--secondary-color);
+            background: white;
+            transform: scale(1.05);
+        }
+
+        .artisan-profile {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: var(--shadow-soft);
+            margin: 2rem 0;
+        }
+
+        .artisan-avatar {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: var(--gradient-primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2rem;
+            font-weight: bold;
+        }
+
+        .color-palette {
+            display: flex;
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+
+        .color-swatch {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: 3px solid white;
+            box-shadow: var(--shadow-soft);
+            transition: transform 0.3s ease;
+        }
+
+        .color-swatch:hover {
+            transform: scale(1.2);
+        }
+
+        .earth-tone { background-color: #8B4513; }
+        .clay-red { background-color: #CD853F; }
+        .natural-white { background-color: #F5F5DC; }
+        .grass-green { background-color: #2F4F2F; }
+        .sky-blue { background-color: #4682B4; }
+
+        .interactive-gallery {
+            position: relative;
+            margin: 3rem 0;
+        }
+
+        .gallery-filter {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            padding: 0.75rem 1.5rem;
+            border: 2px solid var(--border-light);
+            background: white;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .filter-btn.active,
+        .filter-btn:hover {
+            background: var(--primary-color);
+            color: white;
+            border-color: var(--primary-color);
+        }
+
+        .craft-detail-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: var(--shadow-soft);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .craft-detail-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-medium);
+        }
+
+        .craft-detail-card .ribbon {
+            position: absolute;
+            top: 20px;
+            right: -30px;
+            background: var(--accent-color);
+            color: var(--text-dark);
+            padding: 0.5rem 2rem;
+            transform: rotate(45deg);
+            font-weight: bold;
+            font-size: 0.8rem;
+            box-shadow: var(--shadow-soft);
+        }
+
+        .craft-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 1.5rem;
+            background: var(--gradient-primary);
+            color: white;
+            border-radius: 12px;
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: bold;
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        @media (max-width: 768px) {
+            .artisan-profile {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .craft-stats {
+                grid-template-columns: 1fr;
+            }
+            
+            .gallery-filter {
+                justify-content: flex-start;
+                overflow-x: auto;
+                padding-bottom: 0.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">Basotho Heritage</div>
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="clothing.html">Traditional Clothing</a></li>
+                    <li><a href="music.html">Music & Dance</a></li>
+                    <li><a href="crafts.html" class="active">Crafts & Art</a></li>
+                    <li><a href="festivals.html">Festivals</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+                <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation menu">
+                    <span>☰</span>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <h1>Basotho Crafts & Art</h1>
+                <p>Explore the masterful artistry of Basotho craftspeople, from intricately woven baskets that tell stories to beautiful pottery shaped by skilled hands. Each craft embodies generations of knowledge, cultural meaning, and artistic excellence.</p>
+            </div>
+        </section>
+
+        <!-- Introduction -->
+        <section class="craft-showcase">
+            <div class="container">
+                <h2 class="section-title">Artisanal Excellence</h2>
+                <div class="grid grid-2">
+                    <article class="content-block">
+                        <h3>Living Heritage</h3>
+                        <p>Basotho crafts represent a living heritage where traditional techniques are passed down through generations while adapting to contemporary needs. Each piece created is not just functional art but a carrier of cultural stories, beliefs, and community identity.</p>
+                        <p>The mountain environment of Lesotho provides unique materials and influences that shape the distinctive character of Basotho craftsmanship, from the quality of clay found in riverbanks to the indigenous grasses used in basket weaving.</p>
+                    </article>
+                    <article class="content-block">
+                        <h3>Cultural Significance</h3>
+                        <p>Traditional crafts serve multiple purposes in Basotho society - they are practical tools for daily life, artistic expressions of beauty, and repositories of cultural knowledge. The patterns, colors, and techniques used often carry symbolic meanings related to spirituality, social status, and regional identity.</p>
+                        <p>Today's artisans balance preservation of traditional methods with innovation, creating works that honor ancestral techniques while meeting modern aesthetic and functional requirements.</p>
+                    </article>
+                </div>
+
+                <!-- Craft Statistics -->
+                <div class="craft-stats">
+                    <div class="stat-item">
+                        <span class="stat-number">500+</span>
+                        <span class="stat-label">Active Artisans</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">15</span>
+                        <span class="stat-label">Traditional Techniques</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">200</span>
+                        <span class="stat-label">Years of Heritage</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Interactive Gallery -->
+        <section class="interactive-gallery">
+            <div class="container">
+                <h2 class="section-title">Craft Collections</h2>
+                <div class="gallery-filter">
+                    <button class="filter-btn active" data-filter="all">All Crafts</button>
+                    <button class="filter-btn" data-filter="baskets">Baskets</button>
+                    <button class="filter-btn" data-filter="pottery">Pottery</button>
+                    <button class="filter-btn" data-filter="beadwork">Beadwork</button>
+                    <button class="filter-btn" data-filter="textiles">Textiles</button>
+                </div>
+
+                <div class="grid grid-3" id="craftGallery">
+                    <!-- Basket Crafts -->
+                    <div class="craft-detail-card" data-category="baskets">
+                        <div class="ribbon">Traditional</div>
+                        <img src="https://images.unsplash.com/photo-1578928442618-6b0143090064?w=400&h=300&fit=crop" alt="Traditional coiled basket" loading="lazy">
+                        <div class="card-content" style="padding: 1.5rem;">
+                            <h4>Coiled Grass Baskets</h4>
+                            <p>Masterfully woven baskets using indigenous mountain grasses, featuring traditional geometric patterns passed down through generations.</p>
+                            <div class="color-palette">
+                                <div class="color-swatch natural-white" title="Natural grass"></div>
+                                <div class="color-swatch earth-tone" title="Earth dyed"></div>
+                                <div class="color-swatch grass-green" title="Natural green"></div>
+                            </div>
+                            <a href="https://www.lesothocrafts.com/baskets" target="_blank" rel="noopener" class="btn btn-primary mt-2">Learn Technique</a>
+                        </div>
+                    </div>
+
+                    <div class="craft-detail-card" data-category="baskets">
+                        <img src="https://images.unsplash.com/photo-1541247181827-c0f66e2886ca?w=400&h=300&fit=crop" alt="Storage baskets with lids" loading="lazy">
+                        <div class="card-content" style="padding: 1.5rem;">
+                            <h4>Storage Baskets (Litsebe)</h4>
+                            <p>Large, sturdy baskets with fitted lids used for storing grain, clothing, and household items. Essential for mountain living.</p>
+                            <div class="color-palette">
+                                <div class="color-swatch natural-white" title="Natural fiber"></div>
+                                <div class="color-swatch clay-red" title="Clay dyed"></div>
+                            </div>
+                            <a href="https://www.mountaincrafts.ls" target="_blank" rel="noopener" class="btn btn-primary mt-2">Crafting Guide</a>
+                        </div>
+                    </div>
+
+                    <div class="craft-detail-card" data-category="baskets">
+                        <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&h=300&fit=crop" alt="Decorative wall baskets" loading="lazy">
+                        <div class="card-content" style="padding: 1.5rem;">
+                            <h4>Decorative Wall Baskets</h4>
+                            <p>Artistic baskets designed for display, featuring intricate patterns that tell stories of Basotho life and beliefs.</p>
+                            <div class="color-palette">
+                                <div class="color-swatch natural-white" title="Natural base"></div>
+                                <div class="color-swatch grass-green" title="Natural dyes"></div>
+                                <div class="color-swatch earth-tone" title="Earth pigments"></div>
+                            </div>
+                            <a href="https://www.artbaskets.ls" target="_blank" rel="noopener" class="btn btn-primary mt-2">View Gallery</a>
+                        </div>
+                    </div>
+
+                    <!-- Pottery Crafts -->
+                    <div class="craft-detail-card" data-category="pottery">
+                        <div class="ribbon">Functional</div>
+                        <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=300&fit=crop" alt="Traditional clay pots" loading="lazy">
+                        <div class="card-content" style="padding: 1.5rem;">
+                            <h4>Clay Cooking Pots (Pitsa)</h4>
+                            <p>Hand-formed clay vessels used for cooking traditional foods. The clay imparts unique flavors and maintains even heat distribution.</p>
+                            <div class="color-palette">
+                                <div class="color-swatch clay-red" title="Natural clay"></div>
+                                <div class="color-swatch earth-tone" title="Fired finish"></div>
+                            </div>
+                            <a href="https://www.pottery.ls" target="_blank" rel="noopener" class="btn btn-primary mt-2">Pottery Techniques</a>
+                        </div>
+                    </div>
+
+                    <div class="craft-detail-card" data-category="pottery">
+                        <img src="https://images.unsplash.com/photo-1595273670150-bd0c3c392e46?w=400&h=300&fit=crop" alt="Water storage vessels" loading="lazy">
+                        <div class="card-content" style="padding: 1.5rem;">
+                            <h4>Water Storage Vessels</h4>
+                            <p>Large clay containers designed to keep water cool and fresh. Essential for households in areas without running water.</p>
+                            <div class="color-palette">
+                                <div class="color-swatch clay-red" title="Clay body"></div>
+                                <div class="color-swatch natural-white" title="Slip decoration"></div>
+                            </div>
+                            <a href="https://www.traditionalcrafts.gov.ls" target="_blank" rel="noopener" class="btn btn-primary mt-2">Cultural Context</a>
+                        </div>
+                    </div>
+
+                    <div class="craft-detail-card" data-category="pottery">
+                        <img src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=400&h=300&fit=crop" alt="Ceremonial pottery" loading="lazy">
+                        <div class="card-content" style="padding: 1.5rem;">
+                            <h4>Ceremonial Pottery</h4>
+                            <p>Special vessels used in traditional ceremonies, beer brewing, and ritual offerings. Often decorated with symbolic patterns.</p>
+                            <div class="color-palette">
+                                <div class="color-swatch earth-tone" title="Earth clay"></div>
+                                <div class="color-swatch natural-white" title="Sacred symbols"></div>
+                            </div>
+                            <a href="https://www.ceremonies.ls" target="_blank" rel="noopener" class="btn btn-primary mt-2">Ritual Significance</a>
+                        </div>
+                    </div>
+
+                    <!-- Beadwork Crafts -->
+                    <div class="craft-detail-card" data-category="beadwork">
+                        <div class="ribbon">Artistic</div>
+                        <img src="https://images.unsplash.com/photo-1541747064-d40c370c999d?w=400&h=300&fit=crop" alt="Traditional beaded jewelry" loading="lazy">
+                        <div class="card-content" style="padding: 1.5rem;">
+                            <h4>Beaded Jewelry (Lirole)</h4>
+                            <p>Intricate beadwork creating necklaces, bracelets, and ceremonial accessories. Colors and patterns indicate age, status, and region.</p>
+                            <div class="color-palette">
+                                <div class="color-swatch sky-blue" title="Blue beads"></div>
+                                <div class="color-swatch natural-white" title="White beads"></div>
+                                <div class="color-swatch earth-tone" title="Brown beads"></div>
+                            </div>
+                            <a href="https://www.beadwork.ls" target="_blank" rel="noopener" class="btn btn-primary mt-2">Beading Patterns</a>
+                        </div>
+                    </div>
+
+                    <div class="craft-detail-card" data-category="beadwork">
+                        <img src="https://images.unsplash.com/photo-1578928442618-6b0143090064?w=400&h=300&fit=crop&auto=format&q=80" alt="Beaded ceremonial items" loading="lazy">
+                        <div class="card-content" style="padding: 1.5rem;">
+                            <h4>Ceremonial Beadwork</h4>
+                            <p>Elaborate beaded items for weddings, initiations, and important ceremonies. Each piece tells a story through color symbolism.</p>
+                            <div class="color-palette">
+                                <div class="color-swatch grass-green" title="Green significance"></div>
+                                <div class="color-swatch clay-red" title="Red meaning"></div>
+                                <div class="color-swatch sky-blue" title="Blue symbolism"></div>
+                            </div>
+                            <a href="https://www.ceremonialart.ls" target="_blank" rel="noopener" class="btn btn-primary mt-2">Symbolic Meanings</a>
+                        </div>
+                    </div>
+
+                    <!-- Textile Crafts -->
+                    <div class="craft-detail-card" data-category="textiles">
+                        <div class="ribbon">Heritage</div>
+                        <img src="https://images.unsplash.com/photo-1541247181827-c0f66e2886ca?w=400&h=300&fit=crop&auto=format&q=80" alt="Hand-woven textiles" loading="lazy">
+                        <div class="card-content" style="padding: 1.5rem;">
+                            <h4>Hand-woven Textiles</h4>
+                            <p>Traditional textiles woven on simple looms, creating patterns that reflect mountain landscapes and cultural stories.</p>
+                            <div class="color-palette">
+                                <div class="color-swatch natural-white" title="Natural wool"></div>
+                                <div class="color-swatch earth-tone" title="Natural dyes"></div>
+                                <div class="color-swatch grass-green" title="Plant dyes"></div>
+                            </div>
+                            <a href="https://www.weaving.ls" target="_blank" rel="noopener" class="btn btn-primary mt-2">Weaving Techniques</a>
+                        </div>
+                    </div>
+
+                    <div class="craft-detail-card" data-category="textiles">
+                        <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&h=300&fit=crop&auto=format&q=80" alt="Mohair products" loading="lazy">
+                        <div class="card-content" style="padding: 1.5rem;">
+                            <h4>Mohair Crafts</h4>
+                            <p>Luxurious mohair products from Angora goats, including scarves, blankets, and clothing items prized for their softness and warmth.</p>
+                            <div class="color-palette">
+                                <div class="color-swatch natural-white" title="Natural mohair"></div>
+                                <div class="color-swatch clay-red" title="Dyed mohair"></div>
+                            </div>
+                            <a href="https://www.mohair.ls" target="_blank" rel="noopener" class="btn btn-primary mt-2">Mohair Industry</a>
+                        </div>
+                    </div>
+
+                    <div class="craft-detail-card" data-category="textiles">
+                        <img src="https://images.unsplash.com/photo-1595273670150-bd0c3c392e46?w=400&h=300&fit=crop&auto=format&q=80" alt="Embroidered items" loading="lazy">
+                        <div class="card-content" style="padding: 1.5rem;">
+                            <h4>Decorative Embroidery</h4>
+                            <p>Beautiful hand-embroidered items including clothing details, household linens, and decorative wall hangings.</p>
+                            <div class="color-palette">
+                                <div class="color-swatch sky-blue" title="Blue threads"></div>
+                                <div class="color-swatch grass-green" title="Green threads"></div>
+                                <div class="color-swatch clay-red" title="Red threads"></div>
+                            </div>
+                            <a href="https://www.embroidery.ls" target="_blank" rel="noopener" class="btn btn-primary mt-2">Embroidery Styles</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Craft Categories -->
+        <section class="craft-categories">
+            <div class="container">
+                <h2 class="section-title">Traditional Techniques</h2>
+                
+                <!-- Basket Weaving -->
+                <div class="craft-category">
+                    <div class="craft-hero-image">
+                        <img src="https://images.unsplash.com/photo-1578928442618-6b0143090064?w=800&h=300&fit=crop" alt="Basket weaving process" loading="lazy">
+                        <div class="craft-hero-overlay">
+                            <h3>Basket Weaving (Ho Luka Lisebo)</h3>
+                            <p>The ancient art of creating functional and beautiful baskets from mountain grasses</p>
+                        </div>
+                    </div>
+                    
+                    <div class="grid grid-2">
+                        <div class="technique-steps">
+                            <h4>Weaving Process</h4>
+                            <div class="step">
+                                <span class="step-number">1</span>
+                                <strong>Gathering Materials:</strong> Collecting indigenous grasses during optimal seasons when they are strong and pliable.
+                            </div>
+                            <div class="step" style="margin-top: 1rem;">
+                                <span class="step-number">2</span>
+                                <strong>Preparation:</strong> Soaking, cleaning, and sometimes dyeing the grass using natural plant-based dyes.
+                            </div>
+                            <div class="step" style="margin-top: 1rem;">
+                                <span class="step-number">3</span>
+                                <strong>Coiling:</strong> Starting from the center and working outward in a spiral pattern, binding each row to the previous.
+                            </div>
+                            <div class="step" style="margin-top: 1rem;">
+                                <span class="step-number">4</span>
+                                <strong>Finishing:</strong> Securing the final edge and adding any decorative elements or handles.
+                            </div>
+                        </div>
+                        
+                        <div class="material-list">
+                            <div class="material-item">
+                                <strong>Mohala Grass</strong><br>
+                                <small>Primary weaving material</small>
+                            </div>
+                            <div class="material-item">
+                                <strong>Natural Dyes</strong><br>
+                                <small>Plant-based colorants</small>
+                            </div>
+                            <div class="material-item">
+                                <strong>Binding Fiber</strong><br>
+                                <small>Strong grass strips</small>
+                            </div>
+                            <div class="material-item">
+                                <strong>Tools</strong><br>
+                                <small>Simple weaving implements</small>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="artisan-profile">
+                        <div class="artisan-avatar">MW</div>
+                        <div>
+                            <h4>Master Weaver Profile</h4>
+                            <p><strong>'Me Matefo Nkhalema</strong> - A renowned basket weaver with over 40 years of experience, known for her intricate geometric patterns and natural dyeing techniques. She has trained dozens of younger artisans and represents Lesotho at international craft exhibitions.</p>
+                            <p><em>"Each basket tells a story - of the grass that grew on our mountains, the hands that shaped it, and the home it will serve."</em></p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pottery -->
+                <div class="craft-category">
+                    <div class="craft-hero-image">
+                        <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=800&h=300&fit=crop" alt="Potter working with clay" loading="lazy">
+                        <div class="craft-hero-overlay">
+                            <h3>Traditional Pottery (Ho Etsa Linthlo tsa Letsopa)</h3>
+                            <p>Shaping clay from mountain rivers into vessels that serve daily needs</p>
+                        </div>
+                    </div>
+                    
+                    <div class="grid grid-2">
+                        <div class="technique-steps">
+                            <h4>Pottery Process</h4>
+                            <div class="step">
+                                <span class="step-number">1</span>
+                                <strong>Clay Preparation:</strong> Collecting clay from riverbanks and preparing it by removing impurities and achieving proper consistency.
+                            </div>
+                            <div class="step" style="margin-top: 1rem;">
+                                <span class="step-number">2</span>
+                                <strong>Hand Building:</strong> Using coil or pinch techniques to form vessels without pottery wheels, relying on traditional methods.
+                            </div>
+                            <div class="step" style="margin-top: 1rem;">
+                                <span class="step-number">3</span>
+                                <strong>Decoration:</strong> Adding patterns, textures, or slip designs while the clay is leather-hard.
+                            </div>
+                            <div class="step" style="margin-top: 1rem;">
+                                <span class="step-number">4</span>
+                                <strong>Firing:</strong> Using open-fire methods or simple kilns to transform clay into durable ceramic.
+                            </div>
+                        </div>
+                        
+                        <div class="material-list">
+                            <div class="material-item">
+                                <strong>River Clay</strong><br>
+                                <small>Local clay deposits</small>
+                            </div>
+                            <div class="material-item">
+                                <strong>Natural Temper</strong><br>
+                                <small>Sand and organic materials</small>
+                            </div>
+                            <div class="material-item">
+                                <strong>Slip Clay</strong><br>
+                                <small>For surface decoration</small>
+                            </div>
+                            <div class="material-item">
+                                <strong>Firing Materials</strong><br>
+                                <small>Wood and combustibles</small>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="artisan-profile">
+                        <div class="artisan-avatar">LM</div>
+                        <div>
+                            <h4>Master Potter Profile</h4>
+                            <p><strong>Ntate Lebohang Mothibeli</strong> - Third-generation potter who learned from his grandmother and continues the family tradition. He specializes in large water storage vessels and has adapted traditional techniques for contemporary ceramic art.</p>
+                            <p><em>"Clay remembers the hands that shape it and the fire that makes it strong. Our pots carry the memory of generations."</em></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Economic Impact -->
+        <section class="economic-impact">
+            <div class="container">
+                <h2 class="section-title">Preserving Heritage Through Craft</h2>
+                <div class="grid grid-3">
+                    <div class="card">
+                        <h3>Economic Empowerment</h3>
+                        <p>Traditional crafts provide sustainable livelihoods for hundreds of families across Lesotho, particularly women in rural areas. Craft cooperatives have created marketing networks that connect local artisans with international markets.</p>
+                        <div class="color-palette">
+                            <div class="color-swatch grass-green" title="Growth"></div>
+                            <div class="color-swatch sky-blue" title="Opportunity"></div>
+                            <div class="color-swatch earth-tone" title="Stability"></div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <h3>Cultural Preservation</h3>
+                        <p>By maintaining traditional craft practices, communities preserve important cultural knowledge and skills. Young people learning these techniques ensure that ancestral wisdom continues to flow from generation to generation.</p>
+                        <div class="color-palette">
+                            <div class="color-swatch clay-red" title="Heritage"></div>
+                            <div class="color-swatch natural-white" title="Purity"></div>
+                            <div class="color-swatch grass-green" title="Continuity"></div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <h3>Innovation & Adaptation</h3>
+                        <p>Contemporary Basotho artisans blend traditional techniques with modern design sensibilities, creating products that honor heritage while meeting current market demands and aesthetic preferences.</p>
+                        <div class="color-palette">
+                            <div class="color-swatch sky-blue" title="Innovation"></div>
+                            <div class="color-swatch earth-tone" title="Foundation"></div>
+                            <div class="color-swatch clay-red" title="Passion"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Basotho Heritage</h3>
+                    <p>Preserving and celebrating the rich cultural heritage of the Basotho people for future generations.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="clothing.html">Traditional Clothing</a></li>
+                        <li><a href="music.html">Music & Dance</a></li>
+                        <li><a href="festivals.html">Festivals</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Resources</h3>
+                    <ul>
+                        <li><a href="https://www.gov.ls/" target="_blank" rel="noopener">Government of Lesotho</a></li>
+                        <li><a href="https://www.ltdc.org.ls/" target="_blank" rel="noopener">Lesotho Tourism</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Connect</h3>
+                    <p>Share your own cultural experiences and help preserve Basotho heritage.</p>
+                    <a href="contact.html" class="btn btn-secondary">Get Involved</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+  <p>&copy; 2025 Basotho Cultural Heritage Project by <a href="https://profilioo.com/">Profilioo </a>. Educational purposes. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Navigation Toggle
+        const menuToggle = document.getElementById('menuToggle');
+        const navMenu = document.getElementById('navMenu');
+
+        menuToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            const isExpanded = navMenu.classList.contains('active');
+            menuToggle.setAttribute('aria-expanded', isExpanded);
+        });
+
+        const navLinks = document.querySelectorAll('.nav-menu a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+                menuToggle.setAttribute('aria-expanded', 'false');
+            });
+        });
+
+        document.addEventListener('click', (e) => {
+            if (!menuToggle.contains(e.target) && !navMenu.contains(e.target)) {
+                navMenu.classList.remove('active');
+                menuToggle.setAttribute('aria-expanded', 'false');
+            }
+        });
+
+        // Gallery filtering functionality
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const craftCards = document.querySelectorAll('.craft-detail-card');
+
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Update active button
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                button.classList.add('active');
+
+                const filter = button.dataset.filter;
+                
+                // Filter cards with animation
+                craftCards.forEach(card => {
+                    card.style.transform = 'scale(0.8)';
+                    card.style.opacity = '0.5';
+                    
+                    setTimeout(() => {
+                        if (filter === 'all' || card.dataset.category === filter) {
+                            card.style.display = 'block';
+                            card.style.transform = 'scale(1)';
+                            card.style.opacity = '1';
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    }, 200);
+                });
+            });
+        });
+
+        // Animation observer
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-fade-in-up');
+                }
+            });
+        }, observerOptions);
+
+        const animatedElements = document.querySelectorAll('.craft-detail-card, .card, .craft-category, .artisan-profile');
+        animatedElements.forEach(el => observer.observe(el));
+
+        // Color swatch interaction
+        const colorSwatches = document.querySelectorAll('.color-swatch');
+        colorSwatches.forEach(swatch => {
+            swatch.addEventListener('click', () => {
+                const colorName = swatch.title || 'Unknown color';
+                
+                // Create temporary tooltip
+                const tooltip = document.createElement('div');
+                tooltip.textContent = colorName;
+                tooltip.style.cssText = `
+                    position: absolute;
+                    background: var(--text-dark);
+                    color: white;
+                    padding: 0.5rem;
+                    border-radius: 4px;
+                    font-size: 0.8rem;
+                    z-index: 1000;
+                    pointer-events: none;
+                `;
+                
+                document.body.appendChild(tooltip);
+                
+                // Position tooltip near swatch
+                const rect = swatch.getBoundingClientRect();
+                tooltip.style.left = rect.left + 'px';
+                tooltip.style.top = (rect.top - 40) + 'px';
+                
+                // Remove tooltip after 2 seconds
+                setTimeout(() => {
+                    document.body.removeChild(tooltip);
+                }, 2000);
+            });
+        });
+
+        // Interactive statistics animation
+        const statNumbers = document.querySelectorAll('.stat-number');
+        const animateStats = (entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const target = entry.target;
+                    const finalValue = parseInt(target.textContent);
+                    let current = 0;
+                    const increment = finalValue / 50;
+                    
+                    const timer = setInterval(() => {
+                        current += increment;
+                        if (current >= finalValue) {
+                            current = finalValue;
+                            clearInterval(timer);
+                        }
+                        target.textContent = Math.floor(current) + (target.textContent.includes('+') ? '+' : '');
+                    }, 50);
+                }
+            });
+        };
+
+        const statsObserver = new IntersectionObserver(animateStats, { threshold: 0.5 });
+        statNumbers.forEach(stat => statsObserver.observe(stat));
+
+        // Enhanced card interactions
+        const craftCards2 = document.querySelectorAll('.craft-detail-card');
+        craftCards2.forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.style.transform = 'translateY(-8px) scale(1.02)';
+            });
+            
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+
+        // Scroll-triggered animations for craft categories
+        const craftCategories = document.querySelectorAll('.craft-category');
+        craftCategories.forEach((category, index) => {
+            category.style.opacity = '0';
+            category.style.transform = 'translateY(50px)';
+            
+            const categoryObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        setTimeout(() => {
+                            entry.target.style.transition = 'all 0.6s ease';
+                            entry.target.style.opacity = '1';
+                            entry.target.style.transform = 'translateY(0)';
+                        }, index * 200);
+                    }
+                });
+            }, { threshold: 0.2 });
+            
+            categoryObserver.observe(category);
+        });
+    </script>
+</body>
+</html>
